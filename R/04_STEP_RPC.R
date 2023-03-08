@@ -2,8 +2,8 @@
 #'
 #' \code{stepRPC} customized stepwise regression with p-value and trend check which additionally takes into account 
 #' the order of supplied risk factors per group when selects a candidate for the final regression model. Trend check is performed
-#' comparing observed trend between target and analyzed risk factor and trend of the estimated coefficients within the 
-#' OLS regression. Note that procedure checks the column names of supplied \code{db} data frame therefore some 
+#' comparing observed trend between target and analyzed risk factor and trend of the estimated coefficients. 
+#' Note that procedure checks the column names of supplied \code{db} data frame therefore some 
 #' renaming (replacement of special characters) is possible to happen. For details, please, check the help example.
 #'@param start.model Formula class that represents the starting model. It can include some risk factors, but it can be
 #'			   defined only with intercept (\code{y ~ 1} where \code{y} is target variable).
@@ -11,8 +11,8 @@
 #'			    \code{group}. Column \code{group} defines order of groups that will be tested first as a candidate
 #'			    for the regression model. Risk factors selected in each group are kept as a starting variables
 #'			    for the next group testing. Column \code{rf} contains all candidate risk factors supplied for testing.
-#'@param p.value Significance level of p-value of the estimated coefficients. For \code{WoE} coding this value is
-#'		     is directly compared to the p-value of the estimated coefficients, while for \code{dummy} coding
+#'@param p.value Significance level of p-value of the estimated coefficients. For numerical risk factors this value is
+#'		     is directly compared to the p-value of the estimated coefficients, while for categorical risk factors
 #'		     multiple Wald test is employed and its value is used for comparison with selected threshold (\code{p.value}).
 #'@param db Modeling data with risk factors and target variable. All risk factors (apart from the risk factors from the starting model) 
 #'	    should be categorized and as of character type.
